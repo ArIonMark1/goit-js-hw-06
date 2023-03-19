@@ -30,4 +30,4 @@ const actionScript = {
     },
 };
 
-inputField.addEventListener('input', actionScript.outputFunction.bind(actionScript)) // при вводі тексту він синхронно відображається у спані
+actionScript.input.addEventListener('input', actionScript.outputFunction.bind(actionScript)) // при вводі тексту він синхронно відображається у спані
