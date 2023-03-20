@@ -1,4 +1,3 @@
-
 const actionScript = {
 
     content: "Anonymous",
@@ -7,7 +6,7 @@ const actionScript = {
     output: document.querySelector('#name-output'), // приєднатись до вузла виводу спан #name-output
 
     outputFunction() { 
-        this.output.textContent = this.input.value || this.content; // якщо поле пусте відображається текст "Anonymous" інакше контент із поля вводу
+        this.output.textContent = this.input.value.trim() || this.content; // якщо поле пусте відображається текст "Anonymous" інакше контент із поля вводу
     },
 };
 
