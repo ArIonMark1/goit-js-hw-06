@@ -9,7 +9,7 @@ const spanEl = document.querySelector('.color');
 
 bodyPage.addEventListener('click', (event) => {
 
-  if (event.target.tagName === 'BUTTON') {
+  if (event.target.className === 'change-color') {
     const currentColor = getRandomHexColor();
 
     event.currentTarget.style.backgroundColor = currentColor;
