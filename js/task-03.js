@@ -14,45 +14,83 @@ const images = [
 ];
 
 // 1 створити фрагмент сторінки  з яким будемо працювати а в кінці його додамо до головної сторінки
-const fragmentOfPage = document.createDocumentFragment('ul');
+// const body = document.querySelector('body')
+// const listBlock = document.querySelector('.gallery');
 
-console.log(fragmentOfPage)
-// 2 створити <img> та вкласти в <li>
-const listBlocks = images.forEach(({ url, alt }) => { 
-  // console.log(url,' --- ',  alt)
-  const liItem = document.createElement('li');
-  const imgItem = document.createElement('img');
+// const  fragmentOfPage = document.createDocumentFragment()
 
-  // 3 використовувати шаблонні рядки `${el}` та метод insertAdjacentHTML()
+// // 2 створити <img> та вкласти в <li>
+// images.forEach(({ url, alt }) => { 
+//   // console.log(url,' --- ',  alt)
+//   const liItem = document.createElement('li');
+//   const imgItem = document.createElement('img');
 
-  imgItem.src = `${url}`;
-  imgItem.alt = `${alt}`;
+//   // 3 використовувати шаблонні рядки `${el}` та метод insertAdjacentHTML()
+
+//   imgItem.src = `${url}`;
+//   imgItem.alt = `${alt}`;
 
 
-  liItem.style.height = '400px';
+//   liItem.style.height = '400px';
 
-  imgItem.style.height = '100%';
-  imgItem.style.border = '3px solid #ccc';
-  imgItem.style.borderRadius = '10px';
-  imgItem.style.boxShadow = '0 0 10px #444'
+//   imgItem.style.height = '100%';
+//   imgItem.style.border = '3px solid #ccc';
+//   imgItem.style.borderRadius = '10px';
+//   imgItem.style.boxShadow = '0 0 10px #444'
   
-  liItem.appendChild(imgItem);
-  fragmentOfPage.appendChild(liItem);
+//   liItem.append(imgItem);
+//   fragmentOfPage.append(liItem);
 
-})
+// })
 
+// // 4 Додати стилі через класи стилів
+// listBlock.style.display = 'block'
+// listBlock.style.justifuContent = 'center';
+// listBlock.style.alignItem = 'center';
+// listBlock.style.gap = '15px';
+// listBlock.style.listStyleType = 'none';
+
+  
+// listBlock.append(fragmentOfPage);
+// body.append(listBlock);
+
+// ##########################################################################
+
+const bodyElement = document.querySelector('body');
+const listElement = document.querySelector('.gallery');
+
+const documentFragment = document.createDocumentFragment();
+
+// images.forEach(elem => console.log(elem))
+
+// використовуємо шаблонні рядки `${el}` та метод insertAdjacentHTML()
+const listItems = images.map(({url, alt}) => `<li><img class="item__img" src="${url}" alt="${alt}"></li>`).join('');
+console.log(listItems);
+
+listElement.insertAdjacentHTML('afterbegin', listItems)
+// ####################################################
 // 4 Додати стилі через класи стилів
-listBlock.style.display = 'flex';
-listBlock.style.justifuContent = 'center';
-listBlock.style.alignItem = 'center';
-listBlock.style.gap = '15px';
-listBlock.style.listStyleType = 'none';
+listElement.style.display = 'flex';
+listElement.style.gap = '15px'
+listElement.style.justifyContent = 'center'
+listElement.style.listStyle = 'none'
+listElement.style.padding = '0'
 
-  
-listBlock.appendChild(fragmentOfPage);
+for (const element of listElement.children) { 
 
+  element.style.height = '400px';
+}
 
+const pictures = document.getElementsByClassName('item__img');
 
+for (const element of pictures) { 
 
+  element.style.height = '100%';
+  element.style.border = '3px solid #ccc';
+  element.style.borderRadius = '10px';
+  element.style.boxShadow = '0 0 10px #444'
+}
 
-
+// #################################
+documentFragment.append(listElement)
+bodyElement.append(documentFragment)
