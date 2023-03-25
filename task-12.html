@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Балакучі події</title>
+    <link rel="stylesheet" href="/css/common.css" />
+  </head>
+  <body>
+    <p><a href="index.html">Go back</a></p>
+
+    <p class="js-coords1">Кількість викликів onMouseMove: 0</p>
+    <p class="js-coords2">
+      Кількість викликів onMouseMove із допомогою trottle: 0
+    </p>
+    <hr />
+    <!-- event input -->
+
+    <input type="text" class="js-input" />
+    <p class="js-output1">Кількість викликів onInputChange: 0</p>
+    <p class="js-output2">
+      Кількість викликів onInputChange через debounce : 0
+    </p>
+
+    <script src="js/task-12.js" type="module"></script>
+    <script src="./node_modules/lodash/lodash.min.js"></script>
+  </body>
+</html>
