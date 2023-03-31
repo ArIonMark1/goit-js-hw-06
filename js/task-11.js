@@ -71,7 +71,6 @@ function onPaletteContainerClick(evt) {
   if (!isColorSwatchEl) { 
     return;
   }
-
   removeActiveCardClass();
 
   const swatchEl = evt.target;
